@@ -13,7 +13,7 @@ module.exports = class Page {
     let endX = 0;
     let endY = 0;
 
-    if (anchor == "x") {
+    if (anchor === "x") {
       if (!fixedAnchor) {
         startX = (width * anchorPercentage) / 100;
       } else {
@@ -22,7 +22,7 @@ module.exports = class Page {
       endX = startX;
       startY = (height * startPercentage) / 100;
       endY = (height * endPercentage) / 100;
-    } else if (anchor == "y") {
+    } else if (anchor === "y") {
       if (!fixedAnchor) {
         startY = (height * anchorPercentage) / 100;
       } else {
@@ -78,7 +78,7 @@ module.exports = class Page {
       swipes++;
     }
 
-    if (swipes == MAXIMUM_SWIPES && !elementDisplayed) {
+    if (swipes === MAXIMUM_SWIPES && !elementDisplayed) {
       throw "Element not found.";
     }
   }
@@ -90,9 +90,9 @@ module.exports = class Page {
       ).elementId
     );
     let fixedAnchor = 0;
-    if (anchorDetails["anchor"] == "x") {
+    if (anchorDetails["anchor"] === "x") {
       fixedAnchor = elementLocation["x"] + elementLocation["width"] / 2;
-    } else if (anchorDetails["anchor"] == "y") {
+    } else if (anchorDetails["anchor"] === "y") {
       fixedAnchor = elementLocation["y"] + elementLocation["height"] / 2;
     }
     anchorDetails["fixedAnchor"] = fixedAnchor;
